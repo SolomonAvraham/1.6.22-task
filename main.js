@@ -70,18 +70,17 @@ dateAlert();
 function ageAlert() {
   var printHere = document.getElementById("ten");
   printHere.style = "cursor: pointer";
-  // printHere.onmouseover = mouseHoverOne();
-  // printHere.onmouseout = mouseHoverTwo();
-
+  printHere.addEventListener("mouseover", mouseHoverOne);
+  printHere.addEventListener("mouseout", mouseHoverTwo);
   printHere.onclick = function () {
     var userAgeInput = prompt("Age:");
 
     if (userAgeInput > 18) {
       printHere.innerHTML = "<h1>Welcome!</h1>";
-      printHere.style = "background-color:red;cursor: pointer;";
+      printHere.style = "color:red; cursor: pointer;";
     } else {
       printHere.innerHTML = "<h1>Welcome!</h1>";
-      printHere.style = "background-color:blue;cursor: pointer;";
+      printHere.style = "color:blue; cursor: pointer;";
     }
   };
 }
@@ -96,3 +95,41 @@ function mouseHoverTwo() {
   var a = document.getElementById("ten");
   a.style.color = "black";
 }
+
+// 9.	צרו תוכנית לוטו,
+//   התוכנית מקבלת מהמשתמש מספר בין 0 ל - 56 ובעת לחיצה על כפתור מדפיסה אותו למסך,
+//   הפעולה קורית 5 פעמים.לאחר מכן, התוכנית מגרילה מספר בין 0 ל 56 ומדפיסה אותו למסך.
+
+function lottryFunc() {
+  var firstButtonToPrompt = document.getElementById("eleven");
+  firstButtonToPrompt.onclick = function () {
+    for (var i = 0; i < 5; i++) {
+      var userInput = prompt("Pick a Number Between 0-56:");
+      var printToDoc = document.getElementById("thirteen");
+      printToDoc.innerText += " " + userInput;
+
+    }
+
+
+  };
+
+  var secondButtonToPrompt = document.getElementById("tweleve");
+  secondButtonToPrompt.onclick = function () {
+    var printToDocTwo = document.getElementById("fourteen");
+    printToDocTwo.innerText = Math.floor(Math.random() * 57);
+  };
+
+
+// console.log(firstButtonToPrompt.cloneNode("printToDoc."));
+
+  // if (true) {
+  //   var a = document.getElementById("fithteen");
+  //   a.innerHTML = "<h1>Matching Numbers!</h1>";
+  // } else {
+  //   var a = document.getElementById("fithteen");
+  //   a.innerHTML = "<h1>ERROR!</h1>";
+  // }
+  
+
+}
+lottryFunc();
